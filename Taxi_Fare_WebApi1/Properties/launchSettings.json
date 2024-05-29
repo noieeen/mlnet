@@ -3,10 +3,10 @@
     "Taxi_Fare_WebApi1": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:50314;http://localhost:50315",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:50314;http://localhost:50315"
+      }
     }
   }
 }

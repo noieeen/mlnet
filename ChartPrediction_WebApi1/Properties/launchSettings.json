@@ -3,10 +3,10 @@
     "ChartPrediction_WebApi1": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:53821;http://localhost:53822",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:53821;http://localhost:53822"
+      }
     }
   }
 }
