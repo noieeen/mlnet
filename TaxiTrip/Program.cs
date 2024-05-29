@@ -34,7 +34,7 @@ namespace TaxiFarePrediction
                                    .Append(mlContext.Transforms.Categorical.OneHotEncoding(outputColumnName: "RateCodeEncoded", inputColumnName: "RateCode"))
                                    .Append(mlContext.Transforms.Categorical.OneHotEncoding(outputColumnName: "PaymentTypeEncoded", inputColumnName: "PaymentType"))
                                    .Append(mlContext.Transforms.Concatenate("Features", "VendorIdEncoded", "RateCodeEncoded", "PassengerCount", "TripDistance", "PaymentTypeEncoded"))
-                                   .Append(mlContext.Regression.Trainers.FastTree());
+                                   .Append(mlContext.Regression.Trainers.LightGbm());
 
             Console.WriteLine("=============== Create and Train the Model ===============");
 
