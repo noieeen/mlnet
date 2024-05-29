@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
-using Microsoft.ML.Trainers.FastTree;
+using Microsoft.ML.Trainers.LightGbm;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms;
 using Microsoft.ML;
@@ -94,7 +94,7 @@ namespace MLApp
             var pipeline = mlContext.Transforms.Categorical.OneHotEncoding(new []{new InputOutputColumnPair(@"vendor_id", @"vendor_id"),new InputOutputColumnPair(@"payment_type", @"payment_type")}, outputKind: OneHotEncodingEstimator.OutputKind.Indicator)      
                                     .Append(mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"rate_code", @"rate_code"),new InputOutputColumnPair(@"passenger_count", @"passenger_count"),new InputOutputColumnPair(@"trip_distance", @"trip_distance")}))      
                                     .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"vendor_id",@"payment_type",@"rate_code",@"passenger_count",@"trip_distance"}))      
-                                    .Append(mlContext.Regression.Trainers.FastTree(new FastTreeRegressionTrainer.Options(){NumberOfLeaves=19,MinimumExampleCountPerLeaf=37,NumberOfTrees=471,MaximumBinCountPerFeature=845,FeatureFraction=0.763526595656114,LearningRate=0.0835791452476731,LabelColumnName=@"fare_amount",FeatureColumnName=@"Features",DiskTranspose=false}));
+                                    .Append(mlContext.Regression.Trainers.LightGbm(new LightGbmRegressionTrainer.Options(){NumberOfLeaves=3050,NumberOfIterations=4,MinimumExampleCountPerLeaf=26,LearningRate=0.804467436142664,LabelColumnName=@"fare_amount",FeatureColumnName=@"Features",Booster=new GradientBooster.Options(){SubsampleFraction=0.48960174440388,FeatureFraction=0.892905876245476,L1Regularization=9.09491759613657E-10,L2Regularization=0.545358282191398},MaximumBinCountPerFeature=179}));
 
             return pipeline;
         }
