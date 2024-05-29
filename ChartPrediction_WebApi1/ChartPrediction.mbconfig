@@ -1,0 +1,174 @@
+﻿{
+  "Scenario": "Forecasting",
+  "DataSource": {
+    "Type": "SQL",
+    "Version": 1,
+    "ColumnProperties": [
+      {
+        "ColumnName": "RentalDate",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "DateTime",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Year",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "TotalRentals",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ],
+    "ConnectionString": "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\Video\\Video\\DailyDemand.mdf;Integrated Security=True;Connect Timeout=30",
+    "CommandString": "SELECT [RentalDate], CAST([Year] as REAL), CAST([TotalRentals] as REAL) FROM [dbo].[Rentals]",
+    "DatabaseName": "E:\\VIDEO\\VIDEO\\DAILYDEMAND.MDF",
+    "SelectedTableDbo": "dbo",
+    "TableName": "Rentals"
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 1106.6254631022696,
+        "RuntimeInSeconds": 0.02,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 34,
+            "SeriesLength": 423,
+            "TrainSize": 731,
+            "Horizon": 7,
+            "OutputColumnName": "TotalRentals",
+            "InputColumnName": "TotalRentals",
+            "ConfidenceLowerBoundColumn": "TotalRentals_LB",
+            "ConfidenceUpperBoundColumn": "TotalRentals_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 1106.6254631022696,
+        "RuntimeInSeconds": 0.02,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 34,
+            "SeriesLength": 56,
+            "TrainSize": 731,
+            "Horizon": 7,
+            "OutputColumnName": "TotalRentals",
+            "InputColumnName": "TotalRentals",
+            "ConfidenceLowerBoundColumn": "TotalRentals_LB",
+            "ConfidenceUpperBoundColumn": "TotalRentals_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 1106.6254631022696,
+        "RuntimeInSeconds": 0.027,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 34,
+            "SeriesLength": 59,
+            "TrainSize": 731,
+            "Horizon": 7,
+            "OutputColumnName": "TotalRentals",
+            "InputColumnName": "TotalRentals",
+            "ConfidenceLowerBoundColumn": "TotalRentals_LB",
+            "ConfidenceUpperBoundColumn": "TotalRentals_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 1110.9568042361702,
+        "RuntimeInSeconds": 0.03,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 52,
+            "SeriesLength": 293,
+            "TrainSize": 731,
+            "Horizon": 7,
+            "OutputColumnName": "TotalRentals",
+            "InputColumnName": "TotalRentals",
+            "ConfidenceLowerBoundColumn": "TotalRentals_LB",
+            "ConfidenceUpperBoundColumn": "TotalRentals_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 1110.9568042361702,
+        "RuntimeInSeconds": 0.025,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 52,
+            "SeriesLength": 309,
+            "TrainSize": 731,
+            "Horizon": 7,
+            "OutputColumnName": "TotalRentals",
+            "InputColumnName": "TotalRentals",
+            "ConfidenceLowerBoundColumn": "TotalRentals_LB",
+            "ConfidenceUpperBoundColumn": "TotalRentals_UB"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ForecastBySsa"
+    },
+    "Schema": "e0",
+    "MetricName": "RMSE",
+    "ModelFilePath": "C:\\Users\\Noie\\source\\repos\\MLApp\\MLApp\\ChartPrediction.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 3,
+    "OptimizeMetric": "RMSE",
+    "Subsampling": false,
+    "Tuner": "eci-cfo",
+    "Type": "ForecastingTrainingOption",
+    "TrainingTime": 60,
+    "UseCrossValidation": false,
+    "Horizon": 7,
+    "TimeColumn": "RentalDate",
+    "LabelColumn": "TotalRentals",
+    "UseDefaultIndex": false,
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
