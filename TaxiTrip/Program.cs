@@ -2,6 +2,7 @@
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
 using TaxiFarePrediction;
+using System.Diagnostics;
 
 namespace TaxiFarePrediction
 {
@@ -67,12 +68,14 @@ namespace TaxiFarePrediction
             Console.WriteLine($"*************************************************");
 
 
-            SaveModelAsFile(mlContext, dataView.Schema, model);
+            //SaveModelAsFile(mlContext, dataView.Schema, model);
 
         }
 
         private static void TestSinglePrediction(MLContext mlContext, ITransformer model)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
             var predictionFunction = mlContext.Model.CreatePredictionEngine<TaxiTrip, TaxiTripFarePrediction>(model);
 
@@ -93,6 +96,8 @@ namespace TaxiFarePrediction
             Console.WriteLine($"Predicted fare: {prediction.FareAmount:0.####}, actual fare: 15.5");
             Console.WriteLine($"**********************************************************************");
 
+            stopWatch.Stop();
+            Console.WriteLine($"Time Elapsed: {stopWatch.ElapsedMilliseconds} ms");
         }
 
         private static void SaveModelAsFile(MLContext mlContext, DataViewSchema trainingDataViewSchema, ITransformer model)
@@ -102,6 +107,7 @@ namespace TaxiFarePrediction
             // </SnippetSaveModel>
 
             Console.WriteLine("The model is saved to {0}", _modelPath);
+
         }
     }
 }

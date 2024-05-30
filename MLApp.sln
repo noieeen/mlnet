@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartPrediction_WebApi1", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiTripPrediction", "TaxiTrip\TaxiTripPrediction.csproj", "{22846FC2-00D3-4830-B37F-80470B60CD63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeDemandForecasting", "BikeDemandForecasting\BikeDemandForecasting.csproj", "{763A023D-3AB4-49FB-8417-9C176A9A00C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{22846FC2-00D3-4830-B37F-80470B60CD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22846FC2-00D3-4830-B37F-80470B60CD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22846FC2-00D3-4830-B37F-80470B60CD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763A023D-3AB4-49FB-8417-9C176A9A00C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763A023D-3AB4-49FB-8417-9C176A9A00C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763A023D-3AB4-49FB-8417-9C176A9A00C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763A023D-3AB4-49FB-8417-9C176A9A00C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

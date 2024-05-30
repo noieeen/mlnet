@@ -26,5 +26,8 @@
     <PackageReference Include="Plotly.NET" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Plotly.NET.Interactive" Version="5.0.0" />
+    <PackageReference Include="Plotly.NET.ImageExport" Version="6.0.0" />
+    <PackageReference Include="Plotly.NET.CSharp" Version="0.12.0" />
   </ItemGroup>
 </Project>
